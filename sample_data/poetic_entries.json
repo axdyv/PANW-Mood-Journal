@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "text": "My thoughts drip slow like honey—sweet, but too heavy to swallow. I am grateful, yet tired of carrying myself.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 2,
+    "text": "I laughed with the rain today—it fell hard and wild and I felt alive beneath it.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 3,
+    "text": "A quiet ache hums in my spine. Nothing is wrong, but something isn't right. I sit with it anyway.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 4,
+    "text": "My heart claws like an animal against tomorrow, restless and afraid.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 5,
+    "text": "The stars were kind tonight—they reminded me to breathe. A small miracle.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  }
+]

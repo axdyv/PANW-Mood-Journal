@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "text": "Today dragged on like wet cement. I finished my responsibilities, but everything felt heavy and muted. I wasn't sad exactly—just dim, like someone turned the saturation down on the world.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 2,
+    "text": "I didn't want to get out of bed, but I pushed myself through the day anyway. I guess I'm proud of that, even though I'm still tired to the bone.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 3,
+    "text": "Work was chaotic, deadlines everywhere, but somehow I thrived in it. My brain was humming, overstimulated maybe, but alive in a way I haven't felt in months.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 4,
+    "text": "I spent the evening watching the sunset in silence. The sky burned pink, orange, then blue. I felt present for once—not happy, not sad—just here.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 5,
+    "text": "Tomorrow scares me. Opportunity, risk, possibility—everything tangled. I'm excited, but the uncertainty feels sharp against my ribs.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  }
+]

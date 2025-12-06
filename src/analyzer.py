@@ -15,6 +15,9 @@ from transformers import pipeline
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 AMBIG_PATH = BASE_DIR / "sample_data" / "ambiguous_samples.json"
+LONG_PATH = BASE_DIR / "sample_data" / "long_entries.json"
+POETIC_PATH = BASE_DIR / "sample_data" / "poetic_entries.json"
+JOURNAL_PATH = BASE_DIR / "sample_data" / "journal_samples.json"
 
 
 # --- Embedding model ---------------------------------------------------------
@@ -108,33 +111,40 @@ ENERGY_PROTOTYPES: Dict[str, List[str]] = {
 }
 
 
-def _augment_prototypes_from_ambiguous() -> None:
+def _augment_prototypes_from_labeled(path: Path) -> None:
     """
-    If sample_data/ambiguous_samples.json exists, use it to expand the
-    prototype sets for mood and energy. This lets your labeled ambiguous
-    dataset directly inform the classifier without hardcoding phrases.
+    Given a labeled JSON file with fields:
+      - text
+      - expected_mood
+      - expected_energy
+    use it to expand the prototype sets for mood and energy.
     """
-    if not AMBIG_PATH.exists():
+    if not path.exists():
         return
 
     try:
-        data = json.loads(AMBIG_PATH.read_text(encoding="utf-8"))
+        data = json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return
 
     for row in data:
-        text = row.get("text", "")
+        text = (row.get("text") or "").strip()
+        if not text:
+            continue
+
         mood = row.get("expected_mood")
         energy = row.get("expected_energy")
 
-        if text and mood in MOOD_CLASS_LABELS:
+        if mood in MOOD_CLASS_LABELS:
             MOOD_PROTOTYPES.setdefault(mood, []).append(text)
 
-        if text and energy in ENERGY_CLASS_LABELS:
+        if energy in ENERGY_CLASS_LABELS:
             ENERGY_PROTOTYPES.setdefault(energy, []).append(text)
 
 
-_augment_prototypes_from_ambiguous()
+# Use ALL labeled datasets to shape the centroids:
+for p in (AMBIG_PATH, LONG_PATH, POETIC_PATH, JOURNAL_PATH):
+    _augment_prototypes_from_labeled(p)
 
 
 def _compute_centroids(prototypes: Dict[str, List[str]]) -> Dict[str, np.ndarray]:
