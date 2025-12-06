@@ -322,5 +322,185 @@
       "mood": "Positive",
       "energy": "High Stress"
     }
+  },
+  {
+    "id": 37,
+    "timestamp": "2025-12-06T16:17:02.766029",
+    "text": "I feel great",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 38,
+    "timestamp": "2025-12-06T16:17:10.816307",
+    "text": "Today was fine, nothing special happened",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 39,
+    "timestamp": "2025-12-06T16:17:21.572455",
+    "text": "I'm so stressed about tomorrow I can't sit still",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 40,
+    "timestamp": "2025-12-06T16:17:31.113821",
+    "text": "I'm exhaisted but proud of what I did today",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 41,
+    "timestamp": "2025-12-06T16:17:38.061678",
+    "text": "it was just an ordinary day",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 42,
+    "timestamp": "2025-12-06T16:17:46.109831",
+    "text": "Im exhausted but proud of what I did today",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 43,
+    "timestamp": "2025-12-06T16:17:57.458096",
+    "text": "I laughed a lot today but I'm still anxious underneath",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 44,
+    "timestamp": "2025-12-06T16:23:38.509343",
+    "text": "i feel ok\n",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 45,
+    "timestamp": "2025-12-06T16:23:43.208732",
+    "text": "i feel okay",
+    "tags": {
+      "mood": "Negative",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 46,
+    "timestamp": "2025-12-06T16:23:56.887304",
+    "text": "I wish my friends liked me more",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 47,
+    "timestamp": "2025-12-06T17:46:34.008199",
+    "text": "My feelings are like mismatched socks, none of them fit together today.",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 48,
+    "timestamp": "2025-12-06T17:47:58.951883",
+    "text": "my emotions were too blurry and impossible to define today",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 49,
+    "timestamp": "2025-12-06T17:48:11.942445",
+    "text": "I wish things were easier",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 50,
+    "timestamp": "2025-12-06T17:49:24.729102",
+    "text": "im ok\n",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 51,
+    "timestamp": "2025-12-06T17:49:35.768770",
+    "text": "I feel AMAZING",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 52,
+    "timestamp": "2025-12-06T17:49:45.487263",
+    "text": "I feel incredibly depressed",
+    "tags": {
+      "mood": "Negative",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 53,
+    "timestamp": "2025-12-06T17:49:50.409592",
+    "text": "I feel sad",
+    "tags": {
+      "mood": "Negative",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 54,
+    "timestamp": "2025-12-06T17:49:58.248595",
+    "text": "I feel alright, but I could be better",
+    "tags": {
+      "mood": "Negative",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 55,
+    "timestamp": "2025-12-06T17:57:48.409488",
+    "text": "I feel confused",
+    "tags": {
+      "mood": "Confused",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 56,
+    "timestamp": "2025-12-06T17:58:07.803433",
+    "text": "I feel confused but I think it could be a good thing",
+    "tags": {
+      "mood": "Confused",
+      "energy": "High Stress"
+    }
   }
 ]

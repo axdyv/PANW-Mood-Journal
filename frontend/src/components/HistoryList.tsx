@@ -20,7 +20,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ entries }) => {
     });
   }, [entries, filterMood, searchTerm]);
 
-  const moods: (Mood | 'All')[] = ['All', 'Positive', 'Negative', 'Mixed', 'Neutral'];
+  const moods: (Mood | 'All')[] = ['All', 'Positive', 'Negative', 'Mixed', 'Neutral', 'Confused'];
 
   return (
     <div className="space-y-6">

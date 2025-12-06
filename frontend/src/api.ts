@@ -1,4 +1,4 @@
-export type Mood = "Positive" | "Negative" | "Neutral" | "Mixed" | "Unknown";
+export type Mood = "Positive" | "Negative" | "Neutral" | "Mixed" | "Confused" | "Unknown";
 export type Energy = "High Energy" | "Low Energy" | "High Stress" | "Calm" | "Unknown";
 
 export interface JournalEntry {

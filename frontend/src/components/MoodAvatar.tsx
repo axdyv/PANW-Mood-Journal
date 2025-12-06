@@ -43,6 +43,8 @@ const getAvatarConfig = (mood: Mood, energy: Energy): AvatarConfig => {
     }
   } else if (mood === 'Mixed') {
     config = { emoji: '🤔', label: 'Mixed Feelings', color: 'text-purple-600', bg: 'bg-purple-100' };
+  } else if (mood === 'Confused') {
+    config = { emoji: '😵‍💫', label: 'Confused', color: 'text-orange-600', bg: 'bg-orange-100' };
   } else if (mood === 'Neutral') {
     config = { emoji: '😐', label: 'Neutral', color: 'text-gray-600', bg: 'bg-gray-100' };
   }
