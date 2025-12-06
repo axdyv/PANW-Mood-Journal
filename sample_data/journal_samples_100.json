@@ -1,0 +1,636 @@
+[
+  {
+  "id": 1,
+  "text": "I am absolutely crushing it at work this week. Exhausted, but in a good way.",
+  "expected_mood": "Mixed",
+  "expected_energy": "High Energy",
+  "alt_moods": ["Positive"],
+  "alt_energies": ["High Stress"]
+  },
+  {
+    "id": 2,
+    "text": "The workload is crushing me and I can't tell if I'm coping or just dissociating.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+  "id": 3,
+  "text": "Today dragged on like wet cement. I finished my responsibilities, but everything felt heavy and muted. I wasn't sad exactly—just dim, like someone turned the saturation down on the world.",
+  "expected_mood": "Neutral",
+  "expected_energy": "Low Energy",
+  "alt_moods": ["Negative"],
+  "alt_energies": []
+  },
+  {
+  "id": 4,
+  "text": "I didn't want to get out of bed, but I pushed myself through the day anyway. I guess I'm proud of that, even though I'm still tired to the bone.",
+  "expected_mood": "Mixed",
+  "expected_energy": "Low Energy",
+  "alt_moods": ["Negative", "Positive"],
+  "alt_energies": []
+  },
+  {
+    "id": 5,
+    "text": "Work was chaotic, deadlines everywhere, but somehow I thrived in it. My brain was humming, overstimulated maybe, but alive in a way I haven't felt in months.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 6,
+    "text": "I spent the evening watching the sunset in silence. The sky burned pink, orange, then blue. I felt present for once—not happy, not sad—just here.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 7,
+    "text": "Tomorrow scares me. Opportunity, risk, possibility—everything tangled. I'm excited, but the uncertainty feels sharp against my ribs.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+  "id": 8,
+  "text": "Nothing special happened today, but I actually felt really present and calm for once.",
+  "expected_mood": "Positive",
+  "expected_energy": "Calm",
+  "alt_moods": ["Neutral"],
+  "alt_energies": []
+  },
+  {
+    "id": 9,
+    "text": "I finished everything on my to-do list but somehow still feel behind.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 10,
+    "text": "Today was chaos but the good kind; I was running around all day and weirdly thriving.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 11,
+    "text": "Everyone keeps telling me I'm doing great, but I feel like I'm barely hanging on.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+  "id": 12,
+  "text": "Weirdly, everything that should have stressed me out today just... didn't.",
+  "expected_mood": "Positive",
+  "expected_energy": "Calm",
+  "alt_moods": ["Neutral"],
+  "alt_energies": []
+  },
+  {
+    "id": 13,
+    "text": "No breakdowns today. The bar is low but I'll take the win.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+  "id": 14,
+  "text": "Honestly, today was aggressively mid.",
+  "expected_mood": "Neutral",
+  "expected_energy": "Low Energy",
+  "alt_moods": ["Negative"],
+  "alt_energies": []
+  },
+  {
+    "id": 15,
+    "text": "I'm quietly proud of myself for not spiraling this time.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+  "id": 16,
+  "text": "Love that I'm working late for the third night in a row 🙃",
+  "expected_mood": "Negative",
+  "expected_energy": "High Stress",
+  "alt_moods": ["Mixed"],
+  "alt_energies": []
+  },
+  {
+    "id": 17,
+    "text": "My brain is screaming but my face is doing the 'I'm fine 🙂' thing again.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 18,
+    "text": "My heart's racing and I can't tell if I'm excited or terrified.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 19,
+    "text": "Objectively nothing went wrong today, but I still feel on edge for no reason.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+  "id": 20,
+  "text": "Mentally, I'm lying face-down on the floor, but I did every single thing I had to do.",
+  "expected_mood": "Negative",
+  "expected_energy": "Low Energy",
+  "alt_moods": ["Mixed"],
+  "alt_energies": []
+  },
+  {
+  "id": 21,
+  "text": "My thoughts drip slow like honey—sweet, but too heavy to swallow. I am grateful, yet tired of carrying myself.",
+  "expected_mood": "Mixed",
+  "expected_energy": "Low Energy",
+  "alt_moods": ["Neutral"],
+  "alt_energies": []
+  },
+  {
+    "id": 22,
+    "text": "I laughed with the rain today—it fell hard and wild and I felt alive beneath it.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 23,
+    "text": "A quiet ache hums in my spine. Nothing is wrong, but something isn't right. I sit with it anyway.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 24,
+    "text": "My heart claws like an animal against tomorrow, restless and afraid.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 25,
+    "text": "The stars were kind tonight—they reminded me to breathe. A small miracle.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 26,
+    "text": "I sat in the coffee shop for hours, half-working, half-staring out the window. Life felt slow, but at least not hostile.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 27,
+    "text": "I finally sent that scary email. My hands were shaking, but I did it.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 28,
+    "text": "Today I laughed so hard my stomach hurt. It felt like being a kid again.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 29,
+    "text": "The silence in my apartment tonight felt less like peace and more like loneliness.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 30,
+    "text": "I spent all afternoon drawing with no plan, just colors and shapes. Time disappeared.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 31,
+    "text": "I feel like a browser with too many tabs open and none of them loading.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 32,
+    "text": "I said no to something today and didn't feel guilty about it. That felt new.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 33,
+    "text": "It feels like I'm watching my life from the back row instead of actually living it.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 34,
+    "text": "I cleaned my room, answered my emails, and made myself a real meal. It was small, but it felt like taking my life back a little.",
+    "expected_mood": "Positive",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 35,
+    "text": "My anxiety is like a radio stuck between stations—constant static, never clear.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 36,
+    "text": "The day folded softly around me, like a worn-in sweater. Nothing big happened, but I felt held.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 37,
+    "text": "The sun felt too bright today, like it was exposing every flaw I tried to hide.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 38,
+    "text": "I talked through the hard stuff in therapy and walked out feeling hollow but lighter.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 39,
+    "text": "I spent the night gaming with friends online. My body is tired but my heart feels full.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 40,
+    "text": "I keep refreshing my inbox like it's going to fix anything.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 41,
+    "text": "My thoughts drip slow like honey and time feels syrup-thick. I am not unhappy, just heavy.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+  "id": 42,
+  "text": "Ugh I'm so tired lol.",
+  "expected_mood": "Mixed",
+  "expected_energy": "Low Energy",
+  "alt_moods": ["Negative", "Neutral"],
+  "alt_energies": []
+  },
+  {
+  "id": 43,
+  "text": "idk i feel weird but kinda chill tbh",
+  "expected_mood": "Mixed",
+  "expected_energy": "Calm",
+  "alt_moods": ["Neutral"],
+  "alt_energies": []
+  },
+  {
+    "id": 44,
+    "text": "ngl today was actually kinda fire, everything just clicked fr.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 45,
+    "text": "lowkey done with ppl today, social battery on 1%.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 46,
+    "text": "brain is just static rn, like ?? what are we even doing.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 47,
+    "text": "kinda sad but it's fine ig, just vibing with the chaos.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 48,
+    "text": "today was chill, did nothing crazy, just scrolled and listened to music.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 49,
+    "text": "tbh I'm proud of myself, small W but still a W.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 50,
+    "text": "kinda anxious ngl, heart doing drum n bass for no reason.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 51,
+    "text": "lmao I'm so over this semester bro.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+  "id": 52,
+  "text": "lol idc anymore, it is what it is.",
+  "expected_mood": "Negative",
+  "expected_energy": "Low Energy",
+  "alt_moods": ["Neutral"],
+  "alt_energies": []
+  },
+  {
+    "id": 53,
+    "text": "omg today was actually so fun, 12/10 would do again.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 54,
+    "text": "accidentally slept through half the day, oops. still tired tho.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 55,
+    "text": "felt kinda seen today, in a good way.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 56,
+    "text": "bro my brain is lagging, need a patch update asap.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+  "id": 57,
+  "text": "cried a bit, laughed a bit, 50/50 day.",
+  "expected_mood": "Mixed",
+  "expected_energy": "Low Energy",
+  "alt_moods": [],
+  "alt_energies": ["High Stress"]
+  },
+  {
+    "id": 58,
+    "text": "just tired of being tired tbh.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+  "id": 59,
+  "text": "felt weirdly calm even tho everything's on fire around me.",
+  "expected_mood": "Mixed",
+  "expected_energy": "Calm",
+  "alt_moods": [],
+  "alt_energies": ["High Stress"]
+  },
+  {
+    "id": 60,
+    "text": "I feel like I'm speedrunning burnout any%",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 61,
+    "text": "",
+    "expected_mood": "Unknown",
+    "expected_energy": "Unknown"
+  },
+  {
+    "id": 62,
+    "text": "   ",
+    "expected_mood": "Unknown",
+    "expected_energy": "Unknown"
+  },
+  {
+    "id": 63,
+    "text": "asdfghjkl",
+    "expected_mood": "Unknown",
+    "expected_energy": "Unknown"
+  },
+  {
+    "id": 64,
+    "text": "1234567890",
+    "expected_mood": "Unknown",
+    "expected_energy": "Unknown"
+  },
+  {
+    "id": 65,
+    "text": "😭😭😭",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 66,
+    "text": "😂😂😂",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 67,
+    "text": "😴",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 68,
+    "text": "✨❤️✨",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 69,
+    "text": "😬😬 lowkey nervous abt tomorrow",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 70,
+    "text": "🙂 I'm fine. Totally fine.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "alt_moods": ["Negative"],
+    "alt_energies": []
+  },
+  {
+    "id": 71,
+    "text": "today felt like walking through fog; nothing hurt, nothing shined.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 72,
+    "text": "my chest feels tight but my face keeps smiling on autopilot.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "alt_moods": ["Negative"],
+    "alt_energies": []
+  },
+  {
+    "id": 73,
+    "text": "I cooked myself dinner and actually sat at the table to eat it. It felt like I was taking care of someone I love.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 74,
+    "text": "missed three calls today because I couldn't stand the thought of talking.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 75,
+    "text": "the to-do list is a hydra; every time I cross one thing off, two more grow back.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 76,
+    "text": "today felt like borrowing peace from a future storm.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Calm",
+    "alt_moods": ["Negative"],
+    "alt_energies": []
+  },
+  {
+    "id": 77,
+    "text": "I sat on the floor and let the music wash over me until my brain finally exhaled.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 78,
+    "text": "I kept refreshing the tracking page like the package would arrive faster if I stared hard enough.",
+    "expected_mood": "Neutral",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 79,
+    "text": "my hope is small but stubborn, like a candle in a drafty room.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 80,
+    "text": "I scrolled for hours and remember almost nothing I saw.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 81,
+    "text": "today felt like too much noise and not enough meaning.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 82,
+    "text": "I finally asked for help and the world didn't end.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 83,
+    "text": "I stood in the shower until the water went cold, hoping it would wash off the day.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 84,
+    "text": "my jokes are getting darker but at least I'm laughing.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 85,
+    "text": "today I felt like myself again, even if just for an hour.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 86,
+    "text": "I stared at the same sentence for ten minutes and it still didn't make sense.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 87,
+    "text": "I went outside without headphones and actually listened to the city breathing.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 88,
+    "text": "every notification felt like an alarm bell today.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 89,
+    "text": "I cancelled plans and stayed home, and for once I didn't feel like a failure about it.",
+    "expected_mood": "Positive",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 90,
+    "text": "my body is in bed but my brain is still pacing laps.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 91,
+    "text": "today was simple: good coffee, warm sun, quiet mind.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 92,
+    "text": "I feel like I'm underwater, moving slowly while the world sprints past.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 93,
+    "text": "I made a tiny bit of progress on something that matters to me. It's not much, but it's something.",
+    "expected_mood": "Positive",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 94,
+    "text": "I kept almost crying but the tears never showed up.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 95,
+    "text": "somehow all my feelings showed up at once today and none of them brought a manual.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 96,
+    "text": "I laughed with my friends until I forgot what I was worried about.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 97,
+    "text": "I went through the motions today like an NPC in someone else's story.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 98,
+    "text": "I journaled for the first time in months and the words poured out of me.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 99,
+    "text": "I don't know what I feel, just that it's loud.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 100,
+    "text": "I let myself rest without earning it today.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  }
+]

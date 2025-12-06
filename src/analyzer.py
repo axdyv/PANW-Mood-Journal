@@ -18,6 +18,8 @@ AMBIG_PATH = BASE_DIR / "sample_data" / "ambiguous_samples.json"
 LONG_PATH = BASE_DIR / "sample_data" / "long_entries.json"
 POETIC_PATH = BASE_DIR / "sample_data" / "poetic_entries.json"
 JOURNAL_PATH = BASE_DIR / "sample_data" / "journal_samples.json"
+JOURNAL100_PATH = BASE_DIR / "sample_data" / "journal_samples_100.json"
+
 
 
 # --- Embedding model ---------------------------------------------------------
@@ -143,7 +145,7 @@ def _augment_prototypes_from_labeled(path: Path) -> None:
 
 
 # Use ALL labeled datasets to shape the centroids:
-for p in (AMBIG_PATH, LONG_PATH, POETIC_PATH, JOURNAL_PATH):
+for p in (AMBIG_PATH, LONG_PATH, POETIC_PATH, JOURNAL_PATH, JOURNAL100_PATH):
     _augment_prototypes_from_labeled(p)
 
 
@@ -190,6 +192,74 @@ def _classify_with_centroids(
 
     return best_label
 
+def _classify_mood_with_top2(vec: np.ndarray) -> str:
+    """
+    Classify mood using centroid similarities, but allow 'Mixed' when
+    Positive and Negative are both strong and close together.
+    """
+    scores: list[tuple[str, float]] = []
+
+    for label in MOOD_CLASS_LABELS:
+        centroid = MOOD_CENTROIDS.get(label)
+        if centroid is None:
+            continue
+        score = float(np.dot(vec, centroid))
+        scores.append((label, score))
+
+    if not scores:
+        return "Unknown"
+
+    scores.sort(key=lambda x: x[1], reverse=True)
+    best_label, best_score = scores[0]
+
+    # If we have at least two labels, inspect the runner-up
+    if len(scores) > 1:
+        second_label, second_score = scores[1]
+
+        # If Positive and Negative are both high and close in score,
+        # treat the overall mood as Mixed.
+        if {best_label, second_label} == {"Positive", "Negative"}:
+            if best_score - second_score < 0.05:
+                return "Mixed"
+
+    return best_label
+
+
+def _classify_energy_with_top2(vec: np.ndarray, mood: str) -> str:
+    """
+    Classify energy using centroid similarities, but resolve ambiguity
+    between High Energy and High Stress using mood + closeness.
+    """
+    scores: list[tuple[str, float]] = []
+
+    for label in ENERGY_CLASS_LABELS:
+        centroid = ENERGY_CENTROIDS.get(label)
+        if centroid is None:
+            continue
+        score = float(np.dot(vec, centroid))
+        scores.append((label, score))
+
+    if not scores:
+        return "Unknown"
+
+    scores.sort(key=lambda x: x[1], reverse=True)
+    best_label, best_score = scores[0]
+
+    # If we have at least two labels, inspect the runner-up
+    if len(scores) > 1:
+        second_label, second_score = scores[1]
+
+        # Special handling when the model is torn between "High Energy"
+        # and "High Stress": use mood to steer.
+        if {best_label, second_label} == {"High Energy", "High Stress"}:
+            if best_score - second_score < 0.05:
+                if mood in {"Negative", "Mixed"}:
+                    return "High Stress"
+                elif mood == "Positive":
+                    return "High Energy"
+
+    return best_label
+
 
 # --- Core API ----------------------------------------------------------------
 
@@ -213,13 +283,30 @@ def analyze_text(text: str) -> Dict[str, str]:
     # 1) Handle empty / whitespace-only safely
     if not cleaned:
         return {"mood": "Unknown", "energy": "Unknown"}
+    # Treat pure digits / gibberish-y single tokens as Unknown
+    no_space = "".join(cleaned.split())
+
+    # Numbers-only → Unknown
+    if no_space.isdigit():
+        return {"mood": "Unknown", "energy": "Unknown"}
+
+    # Single long token with letters, no spaces, no emojis → likely gibberish / handle as Unknown
+    if (
+        len(cleaned.split()) == 1
+        and len(no_space) >= 5
+        and no_space.isalpha()
+        and not _extract_emojis(cleaned)
+    ):
+        return {"mood": "Unknown", "energy": "Unknown"}
+
 
     # 2) Embed the text
     vec = _embed(cleaned)
 
-    # 3) Classify via centroids
-    mood = _classify_with_centroids(vec, MOOD_CENTROIDS, MOOD_CLASS_LABELS)
-    energy = _classify_with_centroids(vec, ENERGY_CENTROIDS, ENERGY_CLASS_LABELS)
+    # 3) Classify via centroids with top-2 logic
+    mood = _classify_mood_with_top2(vec)
+    energy = _classify_energy_with_top2(vec, mood)
+
 
     # 4) Generic emoji / short-text adjustments (no phrase-specific rules)
 
