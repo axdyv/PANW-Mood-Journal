@@ -1,0 +1,5 @@
+transformers
+torch
+emoji
+rich
+pytest

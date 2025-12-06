@@ -3,7 +3,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
 
-from models import JournalEntry
+from .models import JournalEntry
 
 # Path: repo_root/data/journal_entries.json
 BASE_DIR = Path(__file__).resolve().parent.parent

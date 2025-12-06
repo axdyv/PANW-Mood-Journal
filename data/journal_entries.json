@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2025-12-06T09:27:43.059985",
+    "text": "test entry",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Unknown"
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "2025-12-06T09:30:56.778026",
+    "text": "test entry",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Unknown"
+    }
+  }
+]
