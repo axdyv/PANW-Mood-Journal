@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "text": "Love that I'm working late for the third night in a row 🙃",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress",
+    "rationale": "Sarcastic 'love' + 🙃, clearly frustrated and stressed."
+  },
+  {
+    "id": 2,
+    "text": "I got promoted today and I'm excited, but honestly terrified I'll mess it up.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "rationale": "Positive event + explicit fear/anxiety."
+  },
+  {
+    "id": 3,
+    "text": "Apparently my coping mechanism is just laughing at my own burnout 😂",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "rationale": "Humor over clear burnout; both positive affect and negative state."
+  },
+  {
+    "id": 4,
+    "text": "I'm not sad, I'm just... tired of everything.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy",
+    "rationale": "Resignation/fatigue more than acute stress."
+  },
+  {
+    "id": 5,
+    "text": "Objectively nothing went wrong today, but I still feel on edge for no reason.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress",
+    "rationale": "Baseline okay, but internal tension/anxiety."
+  },
+  {
+    "id": 6,
+    "text": "Today was chaos but the good kind, I was running around all day and weirdly thriving.",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy",
+    "rationale": "Chaotic but clearly enjoyed; high arousal, positive frame."
+  },
+  {
+    "id": 7,
+    "text": "Nothing special happened, but I actually felt really present and calm for once.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm",
+    "rationale": "Low arousal, positive mood."
+  },
+  {
+    "id": 8,
+    "text": "My brain is screaming but my face is doing the 'I'm fine 🙂' thing again.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "rationale": "Contrast between internal panic and external mask."
+  },
+  {
+    "id": 9,
+    "text": "I finished everything on my to-do list but somehow still feel behind.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress",
+    "rationale": "Achievement overshadowed by persistent pressure."
+  },
+  {
+    "id": 10,
+    "text": "Honestly, today was aggressively mid.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy",
+    "rationale": "Indifferent/flat, no strong affect."
+  },
+  {
+    "id": 11,
+    "text": "I'm quietly proud of myself for not spiraling this time.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm",
+    "rationale": "Relief and contained pride, low arousal."
+  },
+  {
+    "id": 12,
+    "text": "I talked about everything in therapy and now I'm emotionally drained but lighter.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Low Energy",
+    "rationale": "Relief + exhaustion, not really high stress."
+  },
+  {
+    "id": 13,
+    "text": "It feels like my body is on fast-forward and my brain is on pause.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress",
+    "rationale": "Dysregulated, anxious energy."
+  },
+  {
+    "id": 14,
+    "text": "Had a meltdown this morning, but the rest of the day was surprisingly peaceful.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Calm",
+    "rationale": "Big negative event followed by genuinely calm recovery."
+  },
+  {
+    "id": 15,
+    "text": "I'm lowkey scared about next week, but trying to trust that I'll figure it out.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "rationale": "Anxiety moderated by some optimism; still anticipatory stress."
+  },
+  {
+    "id": 16,
+    "text": "My heart's racing and I can't tell if I'm excited or terrified.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "rationale": "Ambiguous valence, clearly high arousal/physiological activation."
+  },
+  {
+    "id": 17,
+    "text": "I'm so done with everything but also too tired to care.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy",
+    "rationale": "Burnout/defeat; low arousal, negative mood."
+  },
+  {
+    "id": 18,
+    "text": "Today was one long social battery drain, but I'm glad I went.",
+    "expected_mood": "Mixed",
+    "expected_energy": "Low Energy",
+    "rationale": "Positive appraisal + clear exhaustion."
+  },
+  {
+    "id": 19,
+    "text": "I keep joking about my anxiety like it's a personality trait 😂",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress",
+    "rationale": "Humor layered on persistent anxious state."
+  },
+  {
+    "id": 20,
+    "text": "Mentally, I'm lying face-down on the floor, but I did every single thing I had to do.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy",
+    "rationale": "Functional but emotionally wiped; low energy, negative mood."
+  },
+  {
+    "id": 21,
+    "text": "Weirdly, everything that should have stressed me out today just... didn't.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm",
+    "rationale": "Unexpected calm in situations normally stressful."
+  },
+  {
+    "id": 22,
+    "text": "I feel like I'm watching my own life on a screen instead of actually living it.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy",
+    "rationale": "Dissociation / detachment, low arousal."
+  },
+  {
+    "id": 23,
+    "text": "My messages are chaos but my room is clean, so that's something.",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Energy",
+    "rationale": "Some control/accomplishment amidst social/mental chaos."
+  },
+  {
+    "id": 24,
+    "text": "No breakdowns today. The bar is low but I'll take the win.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm",
+    "rationale": "Low standards, but genuinely positive/relieved."
+  },
+  {
+    "id": 25,
+    "text": "Everyone keeps telling me I'm doing great, but I feel like I'm barely hanging on.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress",
+    "rationale": "External praise vs internal overwhelm; stress dominates."
+  }
+]
