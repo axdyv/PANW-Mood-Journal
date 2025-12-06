@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "text": "I am CRUSHING it at work today!! 😎🔥",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 2,
+    "text": "The workload is totally crushing me lol 😭",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 3,
+    "text": "kinda tired ngl but today was actually pretty good",
+    "expected_mood": "Positive",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 4,
+    "text": "Everything feels so overwhelming, my brain will not shut off.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 5,
+    "text": "Got coffee with friends and just laughed for hours 😂❤️",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 6,
+    "text": "I’m dead inside but also kinda vibing??",
+    "expected_mood": "Mixed",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 7,
+    "text": "Did literally nothing today. Just scrolled and stared at the ceiling.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 8,
+    "text": "I can’t stop thinking about all the stuff I still haven’t finished 😩",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 9,
+    "text": "Therapy was actually nice today, feel a bit lighter 🙂",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 10,
+    "text": "Why am I like this 💀",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 11,
+    "text": "I’m so hyped for this weekend!! plans on plans on plans!!!",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 12,
+    "text": "My anxiety was in full send mode today. Heart racing all day.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 13,
+    "text": "Today was mid. Nothing great, nothing horrible. Just… mid.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 14,
+    "text": "Got yelled at in a meeting and now I can’t stop replaying it in my head.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 15,
+    "text": "Honestly proud of myself for setting boundaries today 😊",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 16,
+    "text": "I’m exhausted but weirdly satisfied, like I actually did something today.",
+    "expected_mood": "Positive",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 17,
+    "text": "Brain fog central. Couldn’t focus on anything.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 18,
+    "text": "Lowkey panicking about the future but pretending I’m fine 🙂👍",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 19,
+    "text": "I am absolutely killing it this week, everything is clicking 😤🔥",
+    "expected_mood": "Positive",
+    "expected_energy": "High Energy"
+  },
+  {
+    "id": 20,
+    "text": "It’s one of those days where even getting out of bed felt like a boss fight.",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 21,
+    "text": "Walked outside, touched grass, listened to music. 10/10 would recommend.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 22,
+    "text": "I feel numb. Not sad, not happy. Just… nothing.",
+    "expected_mood": "Neutral",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 23,
+    "text": "Back-to-back meetings destroyed my soul today 💀",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 24,
+    "text": "Had a tiny win today and honestly I’m holding onto that.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 25,
+    "text": "I keep procrastinating and then hating myself for it. Vicious cycle.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 26,
+    "text": "lol I’m fine it’s all fine everything is on fire but it’s fine 😂🔥",
+    "expected_mood": "Mixed",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 27,
+    "text": "Feeling weirdly peaceful tonight. No notifications, no noise, just me.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 28,
+    "text": "My chest feels tight and I don’t even know why.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 29,
+    "text": "ok",
+    "expected_mood": "Neutral",
+    "expected_energy": "Unknown"
+  },
+  {
+    "id": 30,
+    "text": "",
+    "expected_mood": "Unknown",
+    "expected_energy": "Unknown"
+  },
+  {
+    "id": 31,
+    "text": "   ",
+    "expected_mood": "Unknown",
+    "expected_energy": "Unknown"
+  },
+  {
+    "id": 32,
+    "text": "😭😭😭",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  },
+  {
+    "id": 33,
+    "text": "🥲",
+    "expected_mood": "Negative",
+    "expected_energy": "Low Energy"
+  },
+  {
+    "id": 34,
+    "text": "Got my stuff done early and actually logged off on time for once.",
+    "expected_mood": "Positive",
+    "expected_energy": "Calm"
+  },
+  {
+    "id": 35,
+    "text": "I feel like I’m falling behind everyone around me.",
+    "expected_mood": "Negative",
+    "expected_energy": "High Stress"
+  }
+]
