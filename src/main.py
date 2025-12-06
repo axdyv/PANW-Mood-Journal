@@ -1,59 +1,58 @@
-from __future__ import annotations
-
-import argparse
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import List
+import uvicorn
 
 from .analyzer import analyze_text
 from .storage import create_entry, get_last_entries
 
+app = FastAPI()
 
-def handle_add(args: argparse.Namespace) -> None:
-    text = " ".join(args.text)
-    tags = analyze_text(text)
-    entry = create_entry(text, tags)
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, replace with specific origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-    print(f"\n✔ Saved entry #{entry.id}")
-    print(f"  Mood : {entry.tags.get('mood')}")
-    print(f"  Energy: {entry.tags.get('energy')}\n")
+class EntryRequest(BaseModel):
+    text: str
 
+class EntryResponse(BaseModel):
+    id: int
+    timestamp: str
+    text: str
+    mood: str
+    energy: str
 
-def handle_summary(args: argparse.Namespace) -> None:
-    entries = get_last_entries(3)
-    if not entries:
-        print("No journal entries found yet. Try adding one with `add`.")
-        return
+@app.post("/entries", response_model=EntryResponse)
+def add_entry(request: EntryRequest):
+    tags = analyze_text(request.text)
+    entry = create_entry(request.text, tags)
+    return {
+        "id": entry.id,
+        "timestamp": entry.timestamp.isoformat(),
+        "text": entry.text,
+        "mood": entry.tags.get("mood", "Unknown"),
+        "energy": entry.tags.get("energy", "Unknown")
+    }
 
-    print("\nLast 3 journal entries:\n")
-    for e in entries:
-        ts = e.timestamp.strftime("%Y-%m-%d %H:%M:%S")
-        print(f"[{ts}] {e.text}")
-        print(f"  → Mood: {e.tags.get('mood')}, Energy: {e.tags.get('energy')}\n")
-
-
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="AI-Powered Mood Journal")
-    subparsers = parser.add_subparsers(dest="command")
-
-    # add command
-    add_cmd = subparsers.add_parser("add", help="Add a new journal entry")
-    add_cmd.add_argument("text", nargs="+", help="Text of the journal entry")
-    add_cmd.set_defaults(func=handle_add)
-
-    # summary command
-    summary_cmd = subparsers.add_parser("summary", help="Show last 3 entries")
-    summary_cmd.set_defaults(func=handle_summary)
-
-    return parser
-
-
-def main() -> None:
-    parser = build_parser()
-    args = parser.parse_args()
-
-    if hasattr(args, "func"):
-        args.func(args)
-    else:
-        parser.print_help()
-
+@app.get("/entries", response_model=List[EntryResponse])
+def get_entries(limit: int = 50):
+    entries = get_last_entries(limit)
+    return [
+        {
+            "id": e.id,
+            "timestamp": e.timestamp.isoformat(),
+            "text": e.text,
+            "mood": e.tags.get("mood", "Unknown"),
+            "energy": e.tags.get("energy", "Unknown")
+        }
+        for e in entries
+    ]
 
 if __name__ == "__main__":
-    main()
+    uvicorn.run(app, host="0.0.0.0", port=8000)

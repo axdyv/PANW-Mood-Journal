@@ -69,21 +69,25 @@ ENERGY_CLASS_LABELS = ["High Energy", "Low Energy", "High Stress", "Calm"]
 MOOD_PROTOTYPES: Dict[str, List[str]] = {
     "Positive": [
         "I feel happy and content today.",
+        "I feel great and joyful.",
         "I'm proud of myself and things are going well.",
         "I had a good day and I feel optimistic.",
     ],
     "Negative": [
         "I feel miserable and upset.",
+        "I am frustrated and angry.",
         "Everything feels terrible and heavy.",
         "I am sad and nothing seems to go right.",
     ],
     "Neutral": [
         "Nothing special happened today.",
+        "I'm alright, just another day.",
         "Today was okay, nothing good or bad.",
         "It was an ordinary day without strong feelings.",
     ],
     "Mixed": [
         "I'm excited but also really anxious.",
+        "I'm feeling hopeful yet uncertain.",
         "I'm happy about the outcome but stressed about what comes next.",
         "I feel both relieved and worried at the same time.",
     ],
@@ -192,11 +196,17 @@ def _classify_with_centroids(
 
     return best_label
 
-def _classify_mood_with_top2(vec: np.ndarray) -> str:
+def _classify_mood_with_top2(vec: np.ndarray, text: str) -> str:
     """
-    Classify mood using centroid similarities, but allow 'Mixed' when
-    Positive and Negative are both strong and close together.
+    Classify mood using centroid similarity,
+    but allow 'Mixed' only when Positive & Negative are both strong.
+
+    This version fixes:
+    - Missing text reference
+    - Over-aggressive Mixed classification
+    - "I feel great" → now properly returns Positive
     """
+
     scores: list[tuple[str, float]] = []
 
     for label in MOOD_CLASS_LABELS:
@@ -209,18 +219,44 @@ def _classify_mood_with_top2(vec: np.ndarray) -> str:
     if not scores:
         return "Unknown"
 
+    # sort best to worst
     scores.sort(key=lambda x: x[1], reverse=True)
     best_label, best_score = scores[0]
 
-    # If we have at least two labels, inspect the runner-up
+    # if we have at least 2 for Mixed detection
     if len(scores) > 1:
         second_label, second_score = scores[1]
 
-        # If Positive and Negative are both high and close in score,
-        # treat the overall mood as Mixed.
+        # Mixed candidate ONLY when Positive + Negative are top competitors
         if {best_label, second_label} == {"Positive", "Negative"}:
-            if best_score - second_score < 0.05:
-                return "Mixed"
+
+            # must be confident on both sides before calling Mixed
+            if best_score > 0.40 and second_score > 0.40:
+
+                # detect simple short positive statements (fixes "I feel great")
+                lower = text.lower()
+                word_count = len(text.split())
+                positive_cues = any(
+                    kw in lower for kw in
+                    ["great", "good", "amazing", "fantastic", "awesome", "happy", "excellent"]
+                )
+                negative_cues = any(
+                    kw in lower for kw in
+                    ["bad", "terrible", "awful", "sad", "scared", "anxious", "stressed"]
+                )
+
+                # If text is clearly positive, do NOT force Mixed
+                if (
+                    best_label == "Positive" and
+                    positive_cues and
+                    not negative_cues and
+                    word_count <= 6           # slightly more forgiving
+                ):
+                    return "Positive"
+
+                # Otherwise if they're very close → Mixed
+                if abs(best_score - second_score) < 0.05:
+                    return "Mixed"
 
     return best_label
 
@@ -304,7 +340,7 @@ def analyze_text(text: str) -> Dict[str, str]:
     vec = _embed(cleaned)
 
     # 3) Classify via centroids with top-2 logic
-    mood = _classify_mood_with_top2(vec)
+    mood = _classify_mood_with_top2(vec, cleaned)
     energy = _classify_energy_with_top2(vec, mood)
 
 

@@ -97,5 +97,230 @@
       "mood": "Neutral",
       "energy": "Unknown"
     }
+  },
+  {
+    "id": 12,
+    "timestamp": "2025-12-06T15:17:22.336925",
+    "text": "im feeling great",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 13,
+    "timestamp": "2025-12-06T15:17:55.645971",
+    "text": "I could be doing better",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 14,
+    "timestamp": "2025-12-06T15:18:59.914535",
+    "text": "Nothing special happened, but I feel peaceful and calm",
+    "tags": {
+      "mood": "Positive",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 15,
+    "timestamp": "2025-12-06T15:19:12.683777",
+    "text": "I am feeling good and happy",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 16,
+    "timestamp": "2025-12-06T15:21:45.395327",
+    "text": "I feel great\n",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 17,
+    "timestamp": "2025-12-06T15:22:20.621448",
+    "text": "My day was good. I had a great day and everything went well",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 18,
+    "timestamp": "2025-12-06T15:22:39.393015",
+    "text": "I had a terrible day. Everything went poorly for me",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 19,
+    "timestamp": "2025-12-06T15:23:49.217295",
+    "text": "I feel wonderful.",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 20,
+    "timestamp": "2025-12-06T15:34:05.387269",
+    "text": "i feel great",
+    "tags": {
+      "mood": "Positive",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 21,
+    "timestamp": "2025-12-06T15:34:36.045626",
+    "text": "I failed my exam today, I wish I did better.",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 22,
+    "timestamp": "2025-12-06T15:40:05.204497",
+    "text": "I am little anxious, and not happy at what ever I do. I am not able to focus and not happy with life",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 23,
+    "timestamp": "2025-12-06T15:40:37.072005",
+    "text": "I am happy when I am in my zone but this is for a short time",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 24,
+    "timestamp": "2025-12-06T15:41:00.121392",
+    "text": "I feel like hurting myself",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 25,
+    "timestamp": "2025-12-06T15:41:34.654176",
+    "text": "SOmeone is out there",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 26,
+    "timestamp": "2025-12-06T15:41:54.320782",
+    "text": "The world is a happy place",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 27,
+    "timestamp": "2025-12-06T15:42:09.582458",
+    "text": "where did I keep the keys",
+    "tags": {
+      "mood": "Negative",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 28,
+    "timestamp": "2025-12-06T15:45:33.011086",
+    "text": "I am drinking tea",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 29,
+    "timestamp": "2025-12-06T15:49:06.476829",
+    "text": "I am tired should I be exercising",
+    "tags": {
+      "mood": "Negative",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 30,
+    "timestamp": "2025-12-06T15:49:48.865840",
+    "text": "i feel okay\n",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 31,
+    "timestamp": "2025-12-06T15:50:50.326941",
+    "text": "i crushed it at work today",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 32,
+    "timestamp": "2025-12-06T15:50:57.513564",
+    "text": "i feel crushed by my work today",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 33,
+    "timestamp": "2025-12-06T15:52:16.515528",
+    "text": "I feel insecure about myself today, but I did great at work",
+    "tags": {
+      "mood": "Positive",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 34,
+    "timestamp": "2025-12-06T15:52:33.243655",
+    "text": "im ok",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 35,
+    "timestamp": "2025-12-06T15:53:34.893158",
+    "text": "One shade the more, one ray the less,\nHad half impaired the nameless grace\nWhich waves in every raven tress,\nOr softly lightens o’er her face;\nWhere thoughts serenely sweet express,\nHow pure, how dear their dwelling-place.\n",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 36,
+    "timestamp": "2025-12-06T15:56:02.293655",
+    "text": "😎😎😎",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Stress"
+    }
   }
 ]
