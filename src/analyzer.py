@@ -2,154 +2,186 @@ from __future__ import annotations
 
 from typing import Dict, List, Tuple
 
+import json
+from pathlib import Path
+
 import emoji
+import numpy as np
+from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
 
-# --- Pipelines ----------------------------------------------------------------
+# --- Paths --------------------------------------------------------------------
 
-# Sentiment for overall polarity (we'll use score distribution)
+BASE_DIR = Path(__file__).resolve().parent.parent
+AMBIG_PATH = BASE_DIR / "sample_data" / "ambiguous_samples.json"
+
+
+# --- Embedding model ---------------------------------------------------------
+
+_embedder = SentenceTransformer("all-MiniLM-L6-v2")
+
+
+def _embed(text: str) -> np.ndarray:
+    """Return a normalized sentence embedding."""
+    v = _embedder.encode(text, convert_to_numpy=True)
+    # Normalize for cosine similarity via dot product
+    norm = np.linalg.norm(v)
+    if norm == 0.0:
+        return v
+    return v / norm
+
+
+# --- (Optional) sentiment / zero-shot (kept for potential future use) --------
+
+# These are no longer the *primary* classifiers, but you can mention in README
+# that you experimented with them and then moved to an embedding-based approach.
+
 _sentiment = pipeline(
     "sentiment-analysis",
     model="distilbert-base-uncased-finetuned-sst-2-english",
 )
 
-# Zero-shot classifier for mood / energy / tone (semantic)
 _zero_shot = pipeline(
     "zero-shot-classification",
     model="facebook/bart-large-mnli",
 )
 
-MOOD_LABELS = [
-    "positive feelings",
-    "negative feelings",
-    "mixed feelings",
-    "neutral feelings",
-]
 
-ENERGY_LABELS = [
-    "high energy",
-    "low energy",
-    "high stress",
-    "calm",
-]
-
-TONE_LABELS = [
-    "sarcastic",
-    "sincere",
-]
-
-
-# --- Helpers ------------------------------------------------------------------
+# --- Emoji helper ------------------------------------------------------------
 
 
 def _extract_emojis(text: str) -> List[str]:
     return [ch for ch in text if emoji.is_emoji(ch)]
 
 
-def _sentiment_distribution(text: str) -> Tuple[str, float, float]:
+# --- Prototype definitions ---------------------------------------------------
+
+MOOD_CLASS_LABELS = ["Positive", "Negative", "Neutral", "Mixed"]
+ENERGY_CLASS_LABELS = ["High Energy", "Low Energy", "High Stress", "Calm"]
+
+# Seed prototypes (generic, not tied to specific slang)
+MOOD_PROTOTYPES: Dict[str, List[str]] = {
+    "Positive": [
+        "I feel happy and content today.",
+        "I'm proud of myself and things are going well.",
+        "I had a good day and I feel optimistic.",
+    ],
+    "Negative": [
+        "I feel miserable and upset.",
+        "Everything feels terrible and heavy.",
+        "I am sad and nothing seems to go right.",
+    ],
+    "Neutral": [
+        "Nothing special happened today.",
+        "Today was okay, nothing good or bad.",
+        "It was an ordinary day without strong feelings.",
+    ],
+    "Mixed": [
+        "I'm excited but also really anxious.",
+        "I'm happy about the outcome but stressed about what comes next.",
+        "I feel both relieved and worried at the same time.",
+    ],
+}
+
+ENERGY_PROTOTYPES: Dict[str, List[str]] = {
+    "High Energy": [
+        "I feel energized and ready to go.",
+        "I was running around all day and thriving.",
+        "I am full of energy and eager to do things.",
+    ],
+    "Low Energy": [
+        "I feel exhausted and drained.",
+        "I am tired and have no energy to do anything.",
+        "I barely have the strength to move.",
+    ],
+    "High Stress": [
+        "I feel overwhelmed, anxious and on edge.",
+        "My heart is racing and my brain won't slow down.",
+        "I am panicking and overloaded with stress.",
+    ],
+    "Calm": [
+        "I feel peaceful and relaxed.",
+        "I feel present and calm about everything.",
+        "My mind is quiet and I feel at ease.",
+    ],
+}
+
+
+def _augment_prototypes_from_ambiguous() -> None:
     """
-    Return (baseline_mood, pos_score, neg_score) from sentiment model.
-    Uses distribution to detect 'Mixed' when scores are close.
+    If sample_data/ambiguous_samples.json exists, use it to expand the
+    prototype sets for mood and energy. This lets your labeled ambiguous
+    dataset directly inform the classifier without hardcoding phrases.
     """
-    results = _sentiment(text, return_all_scores=True)[0]
-    scores_by_label = {r["label"].upper(): r["score"] for r in results}
-    pos = scores_by_label.get("POSITIVE", 0.0)
-    neg = scores_by_label.get("NEGATIVE", 0.0)
+    if not AMBIG_PATH.exists():
+        return
 
-    # Base label from max score
-    if pos > neg:
-        base = "Positive"
-    elif neg > pos:
-        base = "Negative"
-    else:
-        base = "Neutral"
+    try:
+        data = json.loads(AMBIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return
 
-    # If the model is conflicted and reasonably confident overall, call it Mixed
-    if abs(pos - neg) < 0.15 and max(pos, neg) > 0.4:
-        base = "Mixed"
+    for row in data:
+        text = row.get("text", "")
+        mood = row.get("expected_mood")
+        energy = row.get("expected_energy")
 
-    return base, pos, neg
+        if text and mood in MOOD_CLASS_LABELS:
+            MOOD_PROTOTYPES.setdefault(mood, []).append(text)
+
+        if text and energy in ENERGY_CLASS_LABELS:
+            ENERGY_PROTOTYPES.setdefault(energy, []).append(text)
 
 
-def _mood_from_zero_shot(text: str) -> str:
+_augment_prototypes_from_ambiguous()
+
+
+def _compute_centroids(prototypes: Dict[str, List[str]]) -> Dict[str, np.ndarray]:
     """
-    Use zero-shot to classify overall mood:
-      positive / negative / mixed / neutral
+    Compute an embedding centroid for each class label from its prototype sentences.
     """
-    res = _zero_shot(text, candidate_labels=MOOD_LABELS, multi_label=False)
-    label = res["labels"][0].lower()
+    centroids: Dict[str, np.ndarray] = {}
+    for label, sentences in prototypes.items():
+        if not sentences:
+            continue
+        vecs = np.stack([_embed(s) for s in sentences], axis=0)
+        centroids[label] = vecs.mean(axis=0)
+        # Normalize centroids as well
+        norm = np.linalg.norm(centroids[label])
+        if norm != 0.0:
+            centroids[label] = centroids[label] / norm
+    return centroids
 
-    if "mixed" in label:
-        return "Mixed"
-    if "positive" in label:
-        return "Positive"
-    if "negative" in label:
-        return "Negative"
-    if "neutral" in label:
-        return "Neutral"
-    return "Unknown"
+
+MOOD_CENTROIDS = _compute_centroids(MOOD_PROTOTYPES)
+ENERGY_CENTROIDS = _compute_centroids(ENERGY_PROTOTYPES)
 
 
-def _tone_from_zero_shot(text: str) -> Tuple[str, float]:
+def _classify_with_centroids(
+    vec: np.ndarray,
+    centroids: Dict[str, np.ndarray],
+    classes: List[str],
+) -> str:
     """
-    Use zero-shot to classify tone: sarcastic vs sincere.
+    Classify an embedding by cosine similarity to precomputed centroids.
     """
-    res = _zero_shot(text, candidate_labels=TONE_LABELS, multi_label=False)
-    return res["labels"][0].lower(), float(res["scores"][0])
+    best_label = "Unknown"
+    best_score = -1.0
+
+    for label in classes:
+        centroid = centroids.get(label)
+        if centroid is None:
+            continue
+        score = float(np.dot(vec, centroid))  # cosine if both normalized
+        if score > best_score:
+            best_score = score
+            best_label = label
+
+    return best_label
 
 
-def _normalize_energy_label(label: str) -> str:
-    label = label.lower().strip()
-    if "high energy" in label:
-        return "High Energy"
-    if "low energy" in label:
-        return "Low Energy"
-    if "high stress" in label or "stressed" in label:
-        return "High Stress"
-    if "calm" in label or "relaxed" in label:
-        return "Calm"
-    return "Unknown"
-
-
-def _energy_from_zero_shot_scores(text: str, mood: str) -> str:
-    """
-    Use multi-label zero-shot classification to infer energy/stress,
-    then interpret the label distribution.
-    """
-    res = _zero_shot(
-        text,
-        candidate_labels=ENERGY_LABELS,
-        multi_label=True,
-    )
-    labels = res["labels"]
-    scores = res["scores"]
-
-    score_map = dict(zip(labels, scores))
-    # Take top 2 labels to understand the "shape" of the distribution
-    top2 = sorted(score_map.items(), key=lambda x: x[1], reverse=True)[:2]
-    top_labels = [lbl for lbl, _ in top2]
-
-    # If high stress is in the top-2, we treat it as High Stress
-    if "high stress" in top_labels:
-        return "High Stress"
-    # High energy wins if present
-    if "high energy" in top_labels:
-        # If mood is clearly negative/mixed, high arousal may feel stressful
-        if mood in {"Negative", "Mixed"}:
-            return "High Stress"
-        return "High Energy"
-    # Calm vs low energy
-    if "calm" in top_labels:
-        return "Calm"
-    if "low energy" in top_labels:
-        return "Low Energy"
-
-    # Fallback: map the single top label if we must
-    return _normalize_energy_label(labels[0])
-
-
-# --- Core API -----------------------------------------------------------------
+# --- Core API ----------------------------------------------------------------
 
 
 def analyze_text(text: str) -> Dict[str, str]:
@@ -158,11 +190,10 @@ def analyze_text(text: str) -> Dict[str, str]:
       - mood: Positive | Negative | Neutral | Mixed | Unknown
       - energy: High Energy | Low Energy | High Stress | Calm | Unknown
 
-    Design:
-      - Use sentiment distribution to get a baseline mood (and detect 'Mixed')
-      - Use zero-shot to refine mood (positive/negative/mixed/neutral)
-      - Use zero-shot to infer sarcastic vs sincere tone
-      - Use zero-shot multi-label to infer energy/stress from energy labels
+    Design (embedding-based):
+      - Use a pre-trained sentence embedding model to encode the text
+      - Classify mood and energy by cosine similarity to learned centroids
+        (computed from seed prototypes + ambiguous_samples.json labels)
       - Apply only very small, generic adjustments (emoji-only, very short replies)
     """
     if text is None:
@@ -173,43 +204,18 @@ def analyze_text(text: str) -> Dict[str, str]:
     if not cleaned:
         return {"mood": "Unknown", "energy": "Unknown"}
 
-    # 2) Baseline mood from sentiment distribution
-    mood_sent, pos_score, neg_score = _sentiment_distribution(cleaned)
+    # 2) Embed the text
+    vec = _embed(cleaned)
 
-    # 3) Semantic mood from zero-shot (positive / negative / mixed / neutral)
-    mood_zs = _mood_from_zero_shot(cleaned)
+    # 3) Classify via centroids
+    mood = _classify_with_centroids(vec, MOOD_CENTROIDS, MOOD_CLASS_LABELS)
+    energy = _classify_with_centroids(vec, ENERGY_CENTROIDS, ENERGY_CLASS_LABELS)
 
-    # Combine mood signals:
-    mood = mood_sent
-
-    # If zero-shot says Mixed, trust that
-    if mood_zs == "Mixed":
-        mood = "Mixed"
-    # If sentiment was Neutral but zero-shot is clear, adopt zero-shot
-    elif mood_sent == "Neutral" and mood_zs in {"Positive", "Negative"}:
-        mood = mood_zs
-    # If sentiment is conflicted (close pos/neg) and zero-shot is clear, use zero-shot
-    elif abs(pos_score - neg_score) < 0.15 and mood_zs in {"Positive", "Negative"}:
-        mood = mood_zs
-
-    # 4) Tone: sarcastic vs sincere
-    tone_label, tone_score = _tone_from_zero_shot(cleaned)
-
-    # If the text is confidently sarcastic and mood looks positive,
-    # it's probably actually mixed or negative in intent.
-    if tone_label == "sarcastic" and tone_score > 0.7:
-        if mood == "Positive":
-            mood = "Mixed"
-
-    # 5) Energy / stress from zero-shot distribution
-    energy = _energy_from_zero_shot_scores(cleaned, mood)
-
-    # 6) Generic emoji / short-text adjustments (no phrase-specific rules)
+    # 4) Generic emoji / short-text adjustments (no phrase-specific rules)
 
     ems = _extract_emojis(cleaned)
     has_only_emoji = bool(ems) and len(cleaned.replace(" ", "")) == len(ems)
 
-    # If it's literally only emojis, let emojis tilt mood a bit
     if has_only_emoji:
         negish = {"😭", "😢", "😔", "😩", "😫", "😡", "💀", "🥲"}
         posish = {"😄", "😁", "😆", "😎", "😊", "😂", "🤩", "❤️", "✨", "👍"}
@@ -219,11 +225,10 @@ def analyze_text(text: str) -> Dict[str, str]:
         elif any(e in posish for e in ems) and mood in {"Negative", "Neutral"}:
             mood = "Positive"
 
-        # If negative emojis dominate and energy looks too calm/low, bump to High Stress
         if any(e in negish for e in ems) and energy in {"Calm", "Low Energy", "Unknown"}:
             energy = "High Stress"
 
-    # very short flat responses without emojis: often low energy
+    # very short flat responses without emojis: often low energy / low affect
     if len(cleaned.split()) <= 2 and not ems and mood in {"Neutral", "Unknown"}:
         energy = "Low Energy"
 

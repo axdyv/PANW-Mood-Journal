@@ -70,5 +70,14 @@
       "mood": "Neutral",
       "energy": "Unknown"
     }
+  },
+  {
+    "id": 9,
+    "timestamp": "2025-12-06T10:25:52.673318",
+    "text": "test entry",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Unknown"
+    }
   }
 ]

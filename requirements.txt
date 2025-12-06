@@ -3,3 +3,4 @@ torch
 emoji
 rich
 pytest
+sentence-transformers
