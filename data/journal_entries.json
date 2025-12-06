@@ -34,5 +34,14 @@
       "mood": "Negative",
       "energy": "High Stress"
     }
+  },
+  {
+    "id": 5,
+    "timestamp": "2025-12-06T09:42:45.808050",
+    "text": "test entry",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Unknown"
+    }
   }
 ]
