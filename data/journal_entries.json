@@ -16,5 +16,23 @@
       "mood": "Neutral",
       "energy": "Unknown"
     }
+  },
+  {
+    "id": 3,
+    "timestamp": "2025-12-06T09:34:40.015452",
+    "text": "I am CRUSHING it at work today!! 😎🔥",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 4,
+    "timestamp": "2025-12-06T09:34:53.512126",
+    "text": "The workload is totally crushing me lol 😭",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
   }
 ]
