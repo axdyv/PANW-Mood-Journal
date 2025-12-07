@@ -6,8 +6,6 @@
 
 ## 📌 Overview
 
-ChatGPT and Google Gemini 3 was utilized to help generate ambiguous entries, generate basic code solutions, create comments/improve readibility of the code, and verify the feasibility of ideas. All generated code outputs were verified using a series of system tests and thoroughly checked for bugs and security risks. 
-
 The PANW Mood Journal Project is an NLP-driven system that analyzes free-form journal text and assigns two-dimensional emotional labels:
 
 Classifying how a person feels just based off of what they're saying is difficult, even for people. The goal of this mood journal is to provide some deeper insight into **how** a person feels when they write certain journal entries. Unlike traditional keyword-based sentiment engines, this system is built to handle **unstructured, messy text**: slang, sarcasm, typos, emojis, long-form reflections, and even fragmented emotional narratives.
@@ -15,6 +13,8 @@ This has meaningful applications in **communication intelligence**, cyber-invest
 
 > Instead of asking *“is this positive or negative?”*, we ask:
 > **What emotional state does this reflect, and how activated is it?**
+
+ChatGPT and Google Gemini 3 was utilized to help generate ambiguous entries, generate basic code solutions, create comments/improve readibility of the code, and verify the feasibility of ideas. All generated code outputs were verified using a series of system tests and thoroughly checked for bugs and security risks. 
 
 ---
 
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
