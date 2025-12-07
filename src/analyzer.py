@@ -36,23 +36,6 @@ def _embed(text: str) -> np.ndarray:
         return v
     return v / norm
 
-
-# --- (Optional) sentiment / zero-shot (kept for potential future use) --------
-
-# These are no longer the *primary* classifiers, but you can mention in README
-# that you experimented with them and then moved to an embedding-based approach.
-
-_sentiment = pipeline(
-    "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english",
-)
-
-_zero_shot = pipeline(
-    "zero-shot-classification",
-    model="facebook/bart-large-mnli",
-)
-
-
 # --- Emoji helper ------------------------------------------------------------
 
 
