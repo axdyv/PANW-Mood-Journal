@@ -134,11 +134,11 @@ Result: Improved categorization and reduced ambiguity collisions.
 6. Emoji visualization + colored tags
 
 Future Implementations
-7. Explainable reasoning output: helps user understand why certain entries are classified as what they are.
-8. Graph/improved tracking over periods of time to visualize mental health across time (using valence (x) and arousal (y))
-9. Multi-label mood distributions: improves overall emotion scoring
-10. User focused centroids: helps give more accurate classifications
-11. Real-time emotion classification: improves user experience and immersion
+- Explainable reasoning output: helps user understand why certain entries are classified as what they are.
+- Graph/improved tracking over periods of time to visualize mental health across time (using valence (x) and arousal (y))
+- Multi-label mood distributions: improves overall emotion scoring
+- User focused centroids: helps give more accurate classifications
+- Real-time emotion classification: improves user experience and immersion
 
 These future implementations would help improve the model's accuracy and provide some more clarity on how each entry is classified. Additionally, adding more real-time support and improving the interactivity of the UI would help user immersion and create a better experience overall. 
 
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
