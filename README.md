@@ -24,7 +24,7 @@ Common sentiment models struggle with:
 
 1. Sarcasm/Tone-Inversion: "Love that I'm working late" → incorrectly positive
 2. Mixed emotional phrases: "Good day, but my chest feels tight"
-3. Slang/Emojis/Typos: "supa mid day ngl, brain frieddd"
+3. Slang/Emojis/Typos: "supa mid day ngl, brain frieddd 😭😭"
 4. Long-form journaling: Sentences that are closer to a paragraph in length.
 
 To address this, the project began as a zero-shot classification + HuggingFace transformer approach and transitioned to a **semantic vector embedding + centroid inference approach**.
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
