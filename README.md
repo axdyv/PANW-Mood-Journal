@@ -33,7 +33,7 @@ To address this, the project began as a zero-shot classification + HuggingFace t
 ## 🤓 Methodology
 Each library used in the project is there to build the foundations for the NLP pipeline and allows for greater interpretability, extensibility, and semantic nuance.
 - FastAPI: Lightweight, async-native backend framework with automatic validation + OpenAPI schema. Low overhead, perfect for real-time journaling input.
-- HuggingFace transformers: Provides access to LLM-grade embedding models + zero-shot classification. Enables semantic mood inference from messy language with no manual retraining.
+- HuggingFace transformers: Provides access to LLM-grade embedding models + zero-shot classification. Enables semantic mood inference from messy language with no manual retraining. (initially used but later removed)
 - sentence-transformers: Converts journal entries into dense vector embeddings, necessary for cosine-similarity based classification.
 - numpy: Enables fast vector operations for cosine similarity, centroid updates, and valence/arousal scoring.
 - Pydantic: Ensures journal entries and response objects are well-typed and validated across the backend.
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
