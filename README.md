@@ -35,7 +35,7 @@ Each library used in the project is there to build the foundations for the NLP p
 - FastAPI: Lightweight, async-native backend framework with automatic validation + OpenAPI schema. Low overhead, perfect for real-time journaling input.
 - HuggingFace transformers: Provides access to LLM-grade embedding models + zero-shot classification. Enables semantic mood inference from messy language with no manual retraining. (initially used but later removed)
 - sentence-transformers: Converts journal entries into dense vector embeddings, necessary for cosine-similarity based classification.
-- numpy: Enables fast vector operations for cosine similarity, centroid updates, and valence/arousal scoring.
+- numpy: Enables fast vector operations for cosine similarity and centroid updates. (Also used for valence/arousal scoring which was an idea to better represent reasonings for classification but was scraped due to time constraints)
 - Pydantic: Ensures journal entries and response objects are well-typed and validated across the backend.
 - uvicorn: The async server powering FastAPI. Which is needed for real-time journaling UI responsiveness.
 - emoji: Detects unicode emojis which is essential for emotional context extraction beyond plain text.
@@ -135,7 +135,7 @@ Result: Improved categorization and reduced ambiguity collisions.
 
 Future Implementations
 7. Explainable reasoning output: helps user understand why certain entries are classified as what they are.
-8. Graph/improved tracking over periods of time to visualize mental health across time
+8. Graph/improved tracking over periods of time to visualize mental health across time (using valence (x) and arousal (y))
 9. Multi-label mood distributions: improves overall emotion scoring
 10. User focused centroids: helps give more accurate classifications
 11. Real-time emotion classification: improves user experience and immersion
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
