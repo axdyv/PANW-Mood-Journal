@@ -6,7 +6,7 @@
 
 ## 📌 Overview
 
-ChatGPT and Google Gemini 3 was utilized to help generate ambiguous entries, generate basic code solutions, create comments/improve readibility of the code, and verify the feasibility of ideas. 
+ChatGPT and Google Gemini 3 was utilized to help generate ambiguous entries, generate basic code solutions, create comments/improve readibility of the code, and verify the feasibility of ideas. All generated code outputs were verified using a series of system tests and thoroughly checked for bugs and security risks. 
 
 The PANW Mood Journal Project is an NLP-driven system that analyzes free-form journal text and assigns two-dimensional emotional labels:
 
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
