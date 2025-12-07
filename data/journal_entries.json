@@ -502,5 +502,149 @@
       "mood": "Confused",
       "energy": "High Stress"
     }
+  },
+  {
+    "id": 57,
+    "timestamp": "2025-12-06T19:32:11.634298",
+    "text": "I am far from keeping well",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 58,
+    "timestamp": "2025-12-06T19:32:18.165147",
+    "text": "wellness is all i feel",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 59,
+    "timestamp": "2025-12-06T19:32:44.590731",
+    "text": "I am destroying all the bad things in my life!",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 60,
+    "timestamp": "2025-12-06T19:34:59.540557",
+    "text": "I'm feeling the pressure of work but it feels good",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 61,
+    "timestamp": "2025-12-06T19:35:07.076200",
+    "text": "I feel great",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 62,
+    "timestamp": "2025-12-06T19:35:11.743934",
+    "text": "i feel good",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 63,
+    "timestamp": "2025-12-06T19:44:23.263498",
+    "text": "I got crushed by my work today",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 64,
+    "timestamp": "2025-12-06T19:44:44.282787",
+    "text": "the workload is crushing me\n",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 65,
+    "timestamp": "2025-12-06T20:14:36.961961",
+    "text": "This project is KILLING me",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 66,
+    "timestamp": "2025-12-06T20:14:47.701858",
+    "text": "Im killing it today!",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 67,
+    "timestamp": "2025-12-06T20:15:09.695556",
+    "text": "My boss told me I absolutely crushed it today at my presentation",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 68,
+    "timestamp": "2025-12-06T20:15:41.959897",
+    "text": "My shoulder has been killing me all day 😔",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 69,
+    "timestamp": "2025-12-06T20:15:52.372940",
+    "text": "that was hella mid ngl",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 70,
+    "timestamp": "2025-12-06T20:16:09.935508",
+    "text": "today was sooooo midddd",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 71,
+    "timestamp": "2025-12-06T20:16:30.681552",
+    "text": "bruh my ex told me she got with my best friend. Wat de hell, i wanna die",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 72,
+    "timestamp": "2025-12-06T20:23:54.050987",
+    "text": "test entry",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Unknown"
+    }
   }
 ]

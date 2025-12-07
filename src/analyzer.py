@@ -10,6 +10,8 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from transformers import pipeline
 
+import re
+
 
 # --- Paths --------------------------------------------------------------------
 
@@ -165,6 +167,80 @@ ENERGY_PROTOTYPES = {
     ],
 }
 
+_POSITIVE_IDIOMS = [
+    r"\bcrushing it\b",
+    r"\bcrushed it\b",
+    r"\bkilling it\b",
+    r"\bnailed it\b",
+    r"\bslayed it\b",
+    r"\bslaying it\b",
+    r"\bdead in a good way\b",
+]
+
+_NEGATIVE_IDIOMS = [
+    r"\bcrushing me\b",
+    r"\bcrushing my\b",
+    r"\bcrushing us\b",
+    r"\bkilling me\b",
+    r"\bkilling my\b",
+    r"\bkilling us\b",
+    r"\bkilling my back\b",
+    r"\bthis (class|exam|semester) is killing me\b",
+]
+
+_MID_IDIOMS = [
+    r"\bmid\b",
+    r"\baggressively mid\b",
+    r"\bkinda mid\b",
+    r"\bmeh\b",
+]
+
+
+def _calibrate_for_idioms(text: str, mood: str, energy: str) -> tuple[str, str]:
+    """
+    Adjust mood/energy for strongly idiomatic phrases
+    like 'crushing it', 'killing me', 'mid', etc.
+    This is a narrow, high-impact correction layer on top
+    of the embedding+centroid classifier.
+    """
+    lower = text.lower()
+
+    # Positive performance idioms: "crushing it", "killing it", etc.
+    for pattern in _POSITIVE_IDIOMS:
+        if re.search(pattern, lower):
+            # If the model thought this was Negative/Confused, pull it up
+            if mood in {"Negative", "Confused"}:
+                mood = "Positive"
+            elif mood == "Mixed":
+                # still allow Mixed but lean positive in feel
+                mood = "Mixed"
+            # These phrases are almost always high-energy hype
+            if energy in {"Calm", "Low Energy", "Unknown"}:
+                energy = "High Energy"
+            return mood, energy
+
+    # Negative strain idioms: "it's killing me", "it's crushing me"
+    for pattern in _NEGATIVE_IDIOMS:
+        if re.search(pattern, lower):
+            if mood in {"Positive", "Neutral"}:
+                mood = "Negative"
+            elif mood == "Mixed":
+                mood = "Mixed"  # keep mixed but clearly not positive
+            # These usually feel like high stress / strain
+            if energy in {"Calm", "Low Energy", "Unknown"}:
+                energy = "High Stress"
+            return mood, energy
+
+    # "Mid" / meh idioms: push toward Neutral/Mixed and avoid extremes
+    for pattern in _MID_IDIOMS:
+        if re.search(pattern, lower):
+            if mood in {"Positive", "Negative"}:
+                mood = "Mixed"  # often feels like muted / in-between
+            if energy == "High Stress":
+                energy = "Low Energy"  # aggressively mid = low vibe, not panic
+            return mood, energy
+
+    return mood, energy
 
 
 def _augment_prototypes_from_labeled(path: Path) -> None:
@@ -222,29 +298,6 @@ def _compute_centroids(prototypes: Dict[str, List[str]]) -> Dict[str, np.ndarray
 
 MOOD_CENTROIDS = _compute_centroids(MOOD_PROTOTYPES)
 ENERGY_CENTROIDS = _compute_centroids(ENERGY_PROTOTYPES)
-
-
-def _classify_with_centroids(
-    vec: np.ndarray,
-    centroids: Dict[str, np.ndarray],
-    classes: List[str],
-) -> str:
-    """
-    Classify an embedding by cosine similarity to precomputed centroids.
-    """
-    best_label = "Unknown"
-    best_score = -1.0
-
-    for label in classes:
-        centroid = centroids.get(label)
-        if centroid is None:
-            continue
-        score = float(np.dot(vec, centroid))  # cosine if both normalized
-        if score > best_score:
-            best_score = score
-            best_label = label
-
-    return best_label
 
 def _classify_mood_with_top2(vec: np.ndarray, text: str) -> str:
     """
@@ -414,5 +467,8 @@ def analyze_text(text: str) -> Dict[str, str]:
     # very short flat responses without emojis: often low energy / low affect
     if len(cleaned.split()) <= 2 and not ems and mood in {"Neutral", "Unknown"}:
         energy = "Low Energy"
+    
+    # 5) Idiom-based calibration (targeted phrase adjustments)
+    mood, energy = _calibrate_for_idioms(cleaned, mood, energy)
 
     return {"mood": mood, "energy": energy}
