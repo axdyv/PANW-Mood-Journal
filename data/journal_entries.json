@@ -727,5 +727,95 @@
       "mood": "Positive",
       "energy": "High Energy"
     }
+  },
+  {
+    "id": 82,
+    "timestamp": "2025-12-06T21:06:08.572259",
+    "text": "This assignment is exciting and at the same time super challenging, will I excel?",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 83,
+    "timestamp": "2025-12-06T21:06:54.075935",
+    "text": "I really like this girl, should I ask her for a date?",
+    "tags": {
+      "mood": "Confused",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 84,
+    "timestamp": "2025-12-06T21:07:29.327286",
+    "text": "I really like this girl, I am so looking forward to asking her for a date.\n",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 85,
+    "timestamp": "2025-12-06T21:08:35.113301",
+    "text": "I won the Powerball jackpot of 350 million, what am I going to do with all this money?",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 86,
+    "timestamp": "2025-12-06T21:16:12.699825",
+    "text": "Love that I am working late to get this assignment done",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 87,
+    "timestamp": "2025-12-06T21:16:57.298992",
+    "text": "I love that everyone around me are sad",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 88,
+    "timestamp": "2025-12-06T21:17:48.124873",
+    "text": "I really cracked my tests, my friends did not do well on the tests, I really dont care about them.",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 89,
+    "timestamp": "2025-12-06T21:19:15.626643",
+    "text": "Yeh kya chal raha hain bhai?",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 90,
+    "timestamp": "2025-12-06T21:19:59.184316",
+    "text": "onosdfhohsodnlm ojsdojolsd ojosjdf",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 91,
+    "timestamp": "2025-12-07T10:41:39.631055",
+    "text": "I feel alright but I could be better",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "Calm"
+    }
   }
 ]
