@@ -30,7 +30,7 @@ Common sentiment models struggle with:
 To address this, the project began as a zero-shot classification + HuggingFace transformer approach and transitioned to a **semantic vector embedding + centroid inference approach**.
 
 ---
-## 🤓 Methodology
+## 🤓 Methodology/Tech Stack
 Each library used in the project is there to build the foundations for the NLP pipeline and allows for greater interpretability, extensibility, and semantic nuance.
 - FastAPI: Lightweight, async-native backend framework with automatic validation + OpenAPI schema. Low overhead, perfect for real-time journaling input.
 - HuggingFace transformers: Provides access to LLM-grade embedding models + zero-shot classification. Enables semantic mood inference from messy language with no manual retraining. (initially used but later removed)
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
