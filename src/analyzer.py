@@ -175,6 +175,7 @@ _POSITIVE_IDIOMS = [
     r"\bslayed it\b",
     r"\bslaying it\b",
     r"\bdead in a good way\b",
+    r"\bim cooking it\b",
 ]
 
 _NEGATIVE_IDIOMS = [
@@ -186,6 +187,8 @@ _NEGATIVE_IDIOMS = [
     r"\bkilling us\b",
     r"\bkilling my back\b",
     r"\bthis (class|exam|semester) is killing me\b",
+    r"\bthis (class|exam|semester) is cooking me\b",
+    r"\bim getting cooked\b",
 ]
 
 _MID_IDIOMS = [

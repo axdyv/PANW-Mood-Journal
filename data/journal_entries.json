@@ -646,5 +646,86 @@
       "mood": "Neutral",
       "energy": "Unknown"
     }
+  },
+  {
+    "id": 73,
+    "timestamp": "2025-12-06T20:35:49.426215",
+    "text": "that exam cooked the hell out of me",
+    "tags": {
+      "mood": "Mixed",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 74,
+    "timestamp": "2025-12-06T20:35:55.902665",
+    "text": "that exam cooked me so bad",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 75,
+    "timestamp": "2025-12-06T20:36:02.036907",
+    "text": "i cooked on that exam ",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 76,
+    "timestamp": "2025-12-06T20:36:23.348055",
+    "text": "Just found out im taking 18 credit hours next semester. Im so cooked ",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 77,
+    "timestamp": "2025-12-06T20:36:56.584430",
+    "text": "empty string",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "Low Energy"
+    }
+  },
+  {
+    "id": 78,
+    "timestamp": "2025-12-06T20:37:06.764567",
+    "text": "this is an empty journal entry",
+    "tags": {
+      "mood": "Neutral",
+      "energy": "High Energy"
+    }
+  },
+  {
+    "id": 79,
+    "timestamp": "2025-12-06T20:37:15.995074",
+    "text": "i am saying nothing of any particular note",
+    "tags": {
+      "mood": "Confused",
+      "energy": "Calm"
+    }
+  },
+  {
+    "id": 80,
+    "timestamp": "2025-12-06T20:37:40.380457",
+    "text": "i wish i could make some more friends",
+    "tags": {
+      "mood": "Negative",
+      "energy": "High Stress"
+    }
+  },
+  {
+    "id": 81,
+    "timestamp": "2025-12-06T20:37:49.483046",
+    "text": "I made some new friends today!",
+    "tags": {
+      "mood": "Positive",
+      "energy": "High Energy"
+    }
   }
 ]
