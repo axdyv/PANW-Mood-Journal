@@ -30,7 +30,7 @@ Common sentiment models struggle with:
 To address this, the project began as a zero-shot classification + HuggingFace transformer approach and transitioned to a **semantic vector embedding + centroid inference approach**.
 
 ---
-## 🤓 Methodology/Tech Stack
+## ⚙️ Methodology/Tech Stack
 Each library used in the project is there to build the foundations for the NLP pipeline and allows for greater interpretability, extensibility, and semantic nuance.
 - FastAPI: Lightweight, async-native backend framework with automatic validation + OpenAPI schema. Low overhead, perfect for real-time journaling input.
 - HuggingFace transformers: Provides access to LLM-grade embedding models + zero-shot classification. Enables semantic mood inference from messy language with no manual retraining. (initially used but later removed)
@@ -108,7 +108,7 @@ The dataset included:
 5. Empty strings, malformed grammar
 
 Initial score: **66%**
-This was alarming to see at first, especially regarding the fact that it was previously scoring ~80-90% on the tests with 25 entries of each. Why did essentially combining all of these entries produce such low accuracy? Interpretation: Many “incorrect” outputs were *actually valid interpretations*. Upon further inspection, an important conclusion was reached: emotional classification is inherently and largely subjective. Tackling this problem meant accounting for that subjectivity or nuance in classification by loosening the evaluation criteria a bit. 
+This was alarming to see at first, especially regarding the fact that it was previously scoring ~80-90% on the tests with 25 entries of each. Why did essentially combining all of these entries produce such low accuracy? Interpretation: Many “incorrect” outputs were *actually valid interpretations*. If a negative entry (like "I did poorly on my test today but I know how to do better next time") was expected to have a classification of "negative and high stress", sometimes the model would predict Mixed and high stress instead of strictly negative. Although not exactly matching up with the expected labels, it is not wrong to say one can have Mixed feelings about that entry, it does not have to be strictly negative. Upon further inspection, an important conclusion was reached: emotional classification is inherently and largely subjective. Tackling this problem meant accounting for that subjectivity or nuance in classification by loosening the evaluation criteria a bit. 
 
 **Evaluation updated → Alternate valid labels allowed.**
 After adding alternate valid labels for mood and energy, accuracy improved, with a reduction in false negatives. 
@@ -166,6 +166,7 @@ npm run dev
 Navigate to → `http://localhost:5173`
 
 ---
+
 
 
 
